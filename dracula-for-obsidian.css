@@ -1,7 +1,7 @@
 :root
 {
     --font-size-normal:              19px;
-    --font-size-code:                16px;
+    --font-size-code:                19px;
     --font-size-side-dock:           16px;
     --font-size-side-dock-title:     18px;
     --font-size-status-bar:          16px;
@@ -11,9 +11,10 @@
     --font-size-h4:                  21px;
     --font-size-h5:                  20px;
     --font-size-h6:                  19px;
-    --font-family-editor:            Avenir, Avenir Next, sans-serif;
-    --font-family-preview:           Avenir, Avenir Next, sans-serif;
-} 
+    --font-family-editor:            Noto Sans, Arial, sans-serif;
+    --font-family-preview:           Noto Sans, Arial, sans-serif;
+    --font-family-code:              Noto Mono, Consolas, "Courier New", Courier, monospace;
+}
 
 .theme-light,
 .theme-dark {
@@ -52,12 +53,12 @@
 
   --text-title-h1:              #ff79c6;
   --text-title-h2:              #bd93f9;
-  --text-title-h3:              #ff5555;
-  --text-title-h4:              #ffb86c;
-  --text-title-h5:              #50fa7b;
-  --text-title-h6:              #8be9fd;
+  --text-title-h3:              #8be9fd;
+  --text-title-h4:              #50fa7b;
+  --text-title-h5:              #ffb86c;
+  --text-title-h6:              #f1fa8c;
   --inline-code:                #bd93f9;
-  --code-block:                 #8be9fd;
+  --code-block:                 #bd93f9;
   --pre-code:                   #44475a;
   --blockquote-border:          #ffb86c;
   --vim-cursor:                 #ff5555;
@@ -98,7 +99,7 @@
 
 /*vertical resize-handle*/
 .workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
-.workspace-split.mod-left-split > .workspace-leaf-resize-handle, 
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
 .workspace-split.mod-right-split > .workspace-leaf-resize-handle{
   width: 1px !important;
   background-color: var(--border-color);
@@ -187,7 +188,7 @@ a:not(.internal-link) {
 /*footnote*/
 .cm-s-obsidian pre.HyperMD-footnote span.cm-hmd-footnote,
 .cm-s-obsidian span.cm-footref {
-  color: var(--text-accent) !important; 
+  color: var(--text-accent) !important;
 }
 
 /***************************************/
@@ -215,7 +216,7 @@ a:not(.internal-link) {
 /* set the text selection color for preview mode */
 ::selection {
   background-color: var(--text-selection);
-} 
+}
 
 /* normal text outside of headings and code of editor */
 .cm-s-obsidian, .mod-single-child .cm-s-obsidian {
@@ -240,7 +241,7 @@ strong, .cm-strong {
 
 /* emphasis in preview and editor */
 em, .cm-em {
-  color: var(--text-muted);
+  color: var(--interactive-accent);
   font-style: italic;
 }
 
@@ -335,12 +336,14 @@ img:hover {
 
 /* code blocks in preview */
 pre code {
-  font-family: monaco !important;
+  font-family: var(--font-family-code) !important;
   font-size: var(--font-size-code) !important;
   padding: 6px !important;
+  padding-left: 24px !important;
   line-height: normal;
   display: block;
   color: var(--code-block)  !important;
+  background-color: var(--background-primary) !important;
 }
 
 /* padding of code blocks in preview */
@@ -471,7 +474,7 @@ thead {
 /***************************************/
 
 /* search result in backlink or file search */
-.search-result-file-title {  
+.search-result-file-title {
   font-size: 15px ;
 }
 
@@ -498,7 +501,7 @@ thead {
 }
 
 .workspace-leaf-content[data-type="tag"] .tag-pane-tag-count,
-.workspace-leaf-content[data-type="tag"] .tag-pane-tag-text {  
+.workspace-leaf-content[data-type="tag"] .tag-pane-tag-text {
   font-size: var(--font-size-side-dock);
 }
 
@@ -515,8 +518,8 @@ thead {
 .markdown-preview-view .markdown-embed-content>:last-child { margin-bottom: 0; }
 /*remove the following two line, you will get border and scroll*/
 .markdown-preview-view .markdown-embed { border:none; padding:0; margin:0; }
-.markdown-preview-view .markdown-embed-content 
-{ 
+.markdown-preview-view .markdown-embed-content
+{
   max-height: unset;
   background-color: var(--background-secondary);
 }
@@ -537,7 +540,7 @@ color: var(--text-accent) !important;
 .graph-view.color-fill-highlight,
 .graph-view.color-line-highlight
 {
-    color: var(--text-accent) !important;    
+    color: var(--text-accent) !important;
 }
 
 .graph-view.color-text
@@ -565,21 +568,6 @@ color: var(--text-accent) !important;
   background-color: var(--interactive-accent-hover);
 }
 
-/***************************************/
-/*            Hide side bar            */
-/***************************************/
-
-.workspace-ribbon:not(:hover) .workspace-ribbon-collapse-btn, 
-.workspace-ribbon:not(:hover) .side-dock-actions, 
-.workspace-ribbon:not(:hover) .side-dock-settings {
-  display:none; 
-  transition: all 300ms ease-in-out;}
-.workspace-ribbon:not(:hover) {
-  width: 0px;
-  transition: all 300ms ease-in-out;}
-
-.workspace-split.mod-left-split {margin-left: 0px;}
-.workspace-split.mod-right-split {margin-right: 0px;}
 
 /***************************************/
 /*           width of content          */
@@ -601,7 +589,7 @@ color: var(--text-accent) !important;
 /* header */
 
 .theme-dark .view-header {
-  background-color: var(--background-primary) !important;   
+  background-color: var(--background-primary) !important;
   border-top: 1px solid var(--border-color) !important;
   border-bottom: 1px solid var(--border-color) !important;
 }
@@ -611,7 +599,7 @@ color: var(--text-accent) !important;
 }
 
 .theme-dark .workspace-leaf.mod-active .view-header {
-  background-color: var(--background-secondary-alt) !important;  
+  background-color: var(--background-secondary-alt) !important;
   border-top: 0px !important;
   border-bottom: 3px solid var(--interactive-accent) !important;
 }
@@ -665,7 +653,7 @@ ul .task-list-item ul::before {left: 0.15em !important}
 
  /* Editor CodeBlock TEXT Appearance */
 .cm-s-obsidian pre.HyperMD-codeblock {
-  font-family: monaco !important;
+  font-family: var(--font-family-code) !important;
   font-size: var(--font-size-code) !important;
   padding: 1px !important;
   display: block;
@@ -679,7 +667,7 @@ ul .task-list-item ul::before {left: 0.15em !important}
   border: 0px !important;
 }
 
-/*an active line highlight in vim normal mode 
+/*an active line highlight in vim normal mode
 .cm-fat-cursor .CodeMirror-activeline .CodeMirror-linebackground{
   background-color: var(--text-selection) !important;
 } */
@@ -694,17 +682,17 @@ code{
 .theme-dark .graph-view.color-arrow {
   color: #50fa7b;
   }
-  
+
   .theme-dark .graph-view.color-fill-tag {
     color: #ffb86c;
   }
-  
+
   .theme-dark .graph-view.color-fill-attachment {
     color: #ff5555;
   }
-  
+
   .theme-dark .graph-view.color-fill-unresolved {
-    color: #6272a4; 
+    color: #6272a4;
   }
 
   .search-result-collapse-indicator {
